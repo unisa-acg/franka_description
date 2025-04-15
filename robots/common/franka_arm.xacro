@@ -15,9 +15,9 @@
     <!-- Define a property that defaults to 'arm_prefix_arm_id' concatenated with an underscore if 'no_prefix' is not set -->
     <xacro:property name="prefix" value="${'' if no_prefix else arm_prefix + arm_id + '_'}" />
 
-    <xacro:if value="${gazebo}">
+    <!-- <xacro:if value="${gazebo}">
       <xacro:property name="connected_to" value="" />
-    </xacro:if>
+    </xacro:if> -->
 
     <xacro:unless value="${not connected_to}">
       <link name="${connected_to}">
