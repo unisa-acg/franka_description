@@ -24,7 +24,7 @@
           </xacro:if>
 
           <xacro:if value="${gazebo}">
-            <plugin>franka_ign_ros2_control/IgnitionSystem</plugin>
+            <plugin>ign_ros2_control/IgnitionSystem</plugin>
           </xacro:if>
 
           <xacro:if value="${use_fake_hardware == 0 and gazebo == 0 and multi_arm == 0}">
@@ -76,9 +76,10 @@
       </xacro:if>
 
     </ros2_control>
+    
     <xacro:if value="${gazebo}">
       <gazebo>
-        <plugin filename="franka_ign_ros2_control-system" name="ign_ros2_control::IgnitionROS2ControlPlugin">
+        <plugin filename="ign_ros2_control-system" name="ign_ros2_control::IgnitionROS2ControlPlugin">
           <parameters>$(find franka_gazebo_bringup)/config/franka_gazebo_controllers.yaml</parameters>
         </plugin>
       </gazebo>
