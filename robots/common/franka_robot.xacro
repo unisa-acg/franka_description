@@ -21,7 +21,8 @@
                       no_prefix:='false'
                       arm_prefix:=''
                       connected_to:='base'
-                      multi_arm:=false">
+                      multi_arm:=false
+                      async_interface:=false">
     <xacro:include filename="$(find franka_description)/robots/common/utils.xacro" />
 
     <xacro:include filename="$(find franka_description)/robots/common/franka_arm.xacro" />
@@ -160,6 +161,7 @@
           gazebo_effort="$(arg gazebo_effort)"
           arm_prefix="${arm_prefix}"
           multi_arm="$(arg multi_arm)"
+          async_interface="${async_interface}"
       />
     </xacro:if>
 

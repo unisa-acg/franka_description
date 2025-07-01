@@ -47,6 +47,9 @@
   <!-- The robot is connected to the base or to another link -->
   <xacro:arg name="connected_to" default="base"/>
 
+  <!-- Use an async hardware interface? -->
+  <xacro:arg name="async_interface" default="true"/>
+
   <!-- The prefix of the robot -->
   <xacro:arg name="arm_prefix" default=""/>
 
@@ -76,5 +79,6 @@
     arm_prefix="${modified_prefix}"
     connected_to="$(arg connected_to)"
     multi_arm="$(arg multi_arm)"
+    async_interface="$(arg async_interface)"
   />
 </robot>
