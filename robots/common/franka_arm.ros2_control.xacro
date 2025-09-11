@@ -32,6 +32,7 @@
             <param name="robot_ip">${robot_ip}</param>
             <param name="arm_prefix">${arm_prefix}</param>
             <param name="filter_commands">true</param>
+            <param name="use_command_governor">true</param>
           </xacro:if>
           <xacro:if value="${use_fake_hardware == 0 and gazebo == 0 and multi_arm == 0 and async_interface == 0}">
             <plugin>franka_hardware/FrankaHardwareInterface</plugin>
