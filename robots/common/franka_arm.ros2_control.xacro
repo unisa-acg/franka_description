@@ -11,7 +11,10 @@
              gazebo_effort:=^|false
              arm_prefix:=''
              multi_arm:=false
-             async_interface:=false">
+             async_interface:=true
+             filter_commands:=false
+             joint_position_rate_limit:=true
+             joint_position_low_pass_filter:=true">
              
     <xacro:property name="arm_prefix_modified" value="${'' if arm_prefix == '' else arm_prefix + '_'}" />
     <ros2_control name="${arm_prefix_modified}FrankaHardwareInterface" type="system">
@@ -31,13 +34,16 @@
             <plugin>franka_hardware/FrankaAsyncHardwareInterface</plugin>
             <param name="robot_ip">${robot_ip}</param>
             <param name="arm_prefix">${arm_prefix}</param>
-            <param name="filter_commands">true</param>
-            <param name="use_command_governor">true</param>
+            <param name="filter_commands">${filter_commands}</param>
+            <param name="joint_position_rate_limit">${joint_position_rate_limit}</param>
+            <param name="joint_position_low_pass_filter">${joint_position_low_pass_filter}</param>
           </xacro:if>
           <xacro:if value="${use_fake_hardware == 0 and gazebo == 0 and multi_arm == 0 and async_interface == 0}">
             <plugin>franka_hardware/FrankaHardwareInterface</plugin>
             <param name="robot_ip">${robot_ip}</param>
             <param name="arm_prefix">${arm_prefix}</param>
+            <param name="joint_position_rate_limit">${joint_position_rate_limit}</param>
+            <param name="joint_position_low_pass_filter">${joint_position_low_pass_filter}</param>
           </xacro:if>
           <xacro:if value="${use_fake_hardware == 0 and gazebo == 0 and multi_arm == 1 and async_interface == 0}">
             <plugin>franka_hardware/MultiFrankaHardwareInterface</plugin>

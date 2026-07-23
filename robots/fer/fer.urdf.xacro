@@ -50,6 +50,15 @@
   <!-- Use an async hardware interface? -->
   <xacro:arg name="async_interface" default="true"/>
 
+  <!-- Filter position commands? -->
+  <xacro:arg name="filter_commands" default="false"/>
+  
+  <!-- Use rate limiter on position commands? -->
+  <xacro:arg name="joint_position_rate_limit" default="true"/>
+  
+  <!-- Use a low pass filter on position commands? -->
+  <xacro:arg name="joint_position_low_pass_filter" default="true"/>
+
   <!-- The prefix of the robot -->
   <xacro:arg name="arm_prefix" default=""/>
 
@@ -80,5 +89,8 @@
     connected_to="$(arg connected_to)"
     multi_arm="$(arg multi_arm)"
     async_interface="$(arg async_interface)"
+    filter_commands="$(arg filter_commands)"
+    joint_position_rate_limit="$(arg joint_position_rate_limit)"
+    joint_position_low_pass_filter="$(arg joint_position_low_pass_filter)"    
   />
 </robot>
