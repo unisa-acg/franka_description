@@ -25,7 +25,8 @@
                       async_interface:=true
                       filter_commands:=false
                       joint_position_rate_limit:=true
-                      joint_position_low_pass_filter:=true">
+                      joint_position_low_pass_filter:=true
+                      position_control_gain:=0.001">
     <xacro:include filename="$(find franka_description)/robots/common/utils.xacro" />
 
     <xacro:include filename="$(find franka_description)/robots/common/franka_arm.xacro" />
@@ -168,6 +169,7 @@
           filter_commands="${filter_commands}"
           joint_position_rate_limit="${joint_position_rate_limit}"
           joint_position_low_pass_filter="${joint_position_low_pass_filter}"
+          position_control_gain="${position_control_gain}"
       />
     </xacro:if>
 

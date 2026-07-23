@@ -14,7 +14,8 @@
              async_interface:=true
              filter_commands:=false
              joint_position_rate_limit:=true
-             joint_position_low_pass_filter:=true">
+             joint_position_low_pass_filter:=true
+             position_control_gain:=0.001">
              
     <xacro:property name="arm_prefix_modified" value="${'' if arm_prefix == '' else arm_prefix + '_'}" />
     <ros2_control name="${arm_prefix_modified}FrankaHardwareInterface" type="system">
@@ -37,6 +38,7 @@
             <param name="filter_commands">${filter_commands}</param>
             <param name="joint_position_rate_limit">${joint_position_rate_limit}</param>
             <param name="joint_position_low_pass_filter">${joint_position_low_pass_filter}</param>
+            <param name="lambda">${position_control_gain}</param>
           </xacro:if>
           <xacro:if value="${use_fake_hardware == 0 and gazebo == 0 and multi_arm == 0 and async_interface == 0}">
             <plugin>franka_hardware/FrankaHardwareInterface</plugin>

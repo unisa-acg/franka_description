@@ -59,6 +59,9 @@
   <!-- Use a low pass filter on position commands? -->
   <xacro:arg name="joint_position_low_pass_filter" default="true"/>
 
+  <!-- Position control gain -->
+  <xacro:arg name="position_control_gain" default="0.001"/>
+
   <!-- The prefix of the robot -->
   <xacro:arg name="arm_prefix" default=""/>
 
@@ -91,6 +94,7 @@
     async_interface="$(arg async_interface)"
     filter_commands="$(arg filter_commands)"
     joint_position_rate_limit="$(arg joint_position_rate_limit)"
-    joint_position_low_pass_filter="$(arg joint_position_low_pass_filter)"    
+    joint_position_low_pass_filter="$(arg joint_position_low_pass_filter)"
+    position_control_gain="$(arg position_control_gain)"
   />
 </robot>
